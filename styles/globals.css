@@ -243,6 +243,19 @@ button:focus-visible {
   padding: 0.125rem 0.375rem;
 }
 
+/* ---------- Tamil language ---------- */
+.lang-ta body,
+.lang-ta p,
+.lang-ta span:not([class*="font-mono"]):not([class*="eyebrow"]):not([class*="font-display"]) {
+  font-family: var(--font-tamil), "Noto Sans Tamil", sans-serif;
+  line-height: 1.75;
+  word-break: keep-all;
+}
+
+.lang-ta .font-display {
+  font-family: var(--font-sora), var(--font-tamil), sans-serif;
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html {

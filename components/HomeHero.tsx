@@ -12,7 +12,7 @@ export default function HomeHero() {
 
   return (
     <section className="mx-auto max-w-6xl px-6 pb-24 pt-16 sm:pt-24">
-      <div className="flex flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-16">
+      <div className="flex flex-col items-center gap-12 lg:flex-row lg:items-start lg:gap-16">
         <div className="order-2 flex-1 lg:order-1">
           <h1 className="font-display text-[clamp(2.5rem,6vw,5.25rem)] font-extrabold uppercase leading-[1.02] tracking-tight text-primary">
             <span className="line-mask">
@@ -49,7 +49,7 @@ export default function HomeHero() {
           </div>
         </div>
 
-        <div className="order-1 w-full max-w-sm lg:order-2 lg:w-[380px]">
+        <div className="order-1 w-full max-w-sm lg:order-2 lg:w-[380px] lg:pt-2">
           <div className="relative" data-cursor-text="that's me">
             <div className="absolute -inset-6 rounded-full bg-accent-dim opacity-20 blur-3xl" aria-hidden="true" />
             <div className="relative aspect-[3/4] overflow-hidden rounded-lg border border-line">
@@ -59,7 +59,7 @@ export default function HomeHero() {
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 380px"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
           </div>

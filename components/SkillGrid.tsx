@@ -22,8 +22,7 @@ const shipWith: Skill[] = [
   { name: "SQLite", icon: `${DEVICON}/sqlite/sqlite-original.svg` },
 ];
 
-const learning: Skill[] = [
-  { name: "Vibe coding" },
+const vibeCoding: Skill[] = [
   { name: "Flutter", icon: `${DEVICON}/flutter/flutter-original.svg` },
   { name: "Java", icon: `${DEVICON}/java/java-original.svg` },
 ];
@@ -71,7 +70,7 @@ export default function SkillGrid() {
   return (
     <div className="flex flex-col gap-10">
       <SkillList title={headings.shipWith} skills={shipWith} />
-      <SkillList title={headings.learning} skills={learning} />
+      <SkillList title={headings.vibeCoding} skills={vibeCoding} />
       <SkillList title={headings.also} skills={also} />
     </div>
   );

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Sora, Inter, JetBrains_Mono, Instrument_Serif } from "next/font/google";
+import { Sora, Inter, JetBrains_Mono, Instrument_Serif, Noto_Sans_Tamil } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
@@ -29,6 +29,13 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
   style: ["normal", "italic"],
   variable: "--font-serif",
+  display: "swap",
+});
+
+const notoSansTamil = Noto_Sans_Tamil({
+  subsets: ["tamil"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-tamil",
   display: "swap",
 });
 
@@ -67,7 +74,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sora.variable} ${inter.variable} ${jetbrains.variable} ${instrumentSerif.variable}`}
+      className={`${sora.variable} ${inter.variable} ${jetbrains.variable} ${instrumentSerif.variable} ${notoSansTamil.variable}`}
     >
       <body className="font-body">
         <Providers>

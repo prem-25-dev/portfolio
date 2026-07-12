@@ -4,18 +4,18 @@ import AboutBody from "@/components/AboutBody";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "D Premsankar — builder, leader, founder. Head Boy turned full-stack developer, now building Ikaruz while studying at Kalvium at SJU.",
+    "D Premsankar — developer, builder, founder. Shipping real software since 16, now building Ikaruz while studying at Kalvium at SJU.",
   openGraph: {
     title: "About — D Premsankar",
     description:
-      "Builder, leader, founder. Head Boy turned full-stack developer, now building Ikaruz.",
+      "Developer, builder, founder. Shipping real software since 16, now building Ikaruz.",
     images: ["/photo.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "About — D Premsankar",
     description:
-      "Builder, leader, founder. Head Boy turned full-stack developer, now building Ikaruz.",
+      "Developer, builder, founder. Shipping real software since 16, now building Ikaruz.",
     images: ["/photo.jpg"],
   },
   alternates: { canonical: "/about" },

@@ -28,6 +28,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     if (saved === "ta" || saved === "en") setLang(saved);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.classList.toggle("lang-ta", lang === "ta");
+  }, [lang]);
+
   const toggle = () => {
     setLang((l) => {
       const next = l === "en" ? "ta" : "en";
