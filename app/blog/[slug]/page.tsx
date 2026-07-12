@@ -5,6 +5,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { ArrowLeft } from "lucide-react";
 import { getAllPosts, getPost } from "@/lib/blog";
 import Reveal from "@/components/Reveal";
+import BlogInteractions from "@/components/BlogInteractions";
 
 interface Props {
   params: { slug: string };
@@ -57,7 +58,9 @@ export default function BlogPostPage({ params }: Props) {
         <MDXRemote source={post.content} />
       </Reveal>
 
-      <Reveal className="mt-16 border-t border-line pt-8">
+      <BlogInteractions slug={params.slug} />
+
+      <Reveal className="mt-10 border-t border-line pt-8">
         <Link
           href="/blog"
           className="inline-flex items-center gap-2 font-mono text-tag text-accent transition-opacity hover:opacity-80"
