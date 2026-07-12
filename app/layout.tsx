@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Sora, Inter, JetBrains_Mono, Instrument_Serif, Noto_Sans_Tamil } from "next/font/google";
+import { Sora, Inter, JetBrains_Mono, Instrument_Serif } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
@@ -32,37 +32,111 @@ const instrumentSerif = Instrument_Serif({
   display: "swap",
 });
 
-const notoSansTamil = Noto_Sans_Tamil({
-  subsets: ["tamil"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-tamil",
-  display: "swap",
-});
+const siteUrl = "https://premsankar.dev";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://premsankar.dev"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "D Premsankar — Full-Stack Developer & Founder",
+    default: "D Premsankar — Full-Stack Developer, AI Builder & Founder of Ikaruz",
     template: "%s — D Premsankar",
   },
   description:
-    "Full-Stack Developer and Founder of Ikaruz. I ship production software for real clients — billing systems, automation pipelines, and more.",
+    "D Premsankar (Prem Sankar) is a full-stack developer, AI builder, and founder of Ikaruz. Python, Flutter & FastAPI developer from Chennai. Vibe coder building real software for real businesses.",
+  keywords: [
+    "D Premsankar",
+    "Premsankar",
+    "Prem Sankar",
+    "Prem developer",
+    "D Premsankar developer",
+    "Ikaruz",
+    "Ikaruz founder",
+    "founder of Ikaruz",
+    "Ikaruz co-founder",
+    "full stack developer",
+    "full-stack developer India",
+    "Python developer",
+    "Flutter developer",
+    "FastAPI developer",
+    "AI developer",
+    "AI builder",
+    "vibe coder",
+    "web developer Chennai",
+    "desktop developer",
+    "software developer India",
+    "freelance developer India",
+    "Kalvium",
+    "SJU developer",
+    "young developer India",
+  ],
+  authors: [{ name: "D Premsankar", url: siteUrl }],
+  creator: "D Premsankar",
   openGraph: {
-    title: "D Premsankar — Full-Stack Developer & Founder",
+    title: "D Premsankar — Full-Stack Developer, AI Builder & Founder of Ikaruz",
     description:
-      "Full-Stack Developer and Founder of Ikaruz. I ship production software for real clients.",
-    images: ["/photo.jpg"],
+      "Full-stack developer and founder of Ikaruz. Python, Flutter & FastAPI. Building real software for real businesses.",
+    images: [{ url: "/photo.jpg", width: 1200, height: 630, alt: "D Premsankar" }],
     type: "website",
+    url: siteUrl,
+    siteName: "D Premsankar",
+    locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "D Premsankar — Full-Stack Developer & Founder",
+    title: "D Premsankar — Full-Stack Developer, AI Builder & Founder of Ikaruz",
     description:
-      "Full-Stack Developer and Founder of Ikaruz. I ship production software for real clients.",
+      "Full-stack developer and founder of Ikaruz. Python, Flutter & FastAPI. Building real software.",
     images: ["/photo.jpg"],
   },
-  alternates: {
-    canonical: "/",
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "D Premsankar",
+  alternateName: ["Premsankar", "Prem Sankar", "D. Premsankar", "Prem"],
+  url: siteUrl,
+  image: `${siteUrl}/photo.jpg`,
+  jobTitle: ["Full-Stack Developer", "AI Builder", "Founder", "Vibe Coder"],
+  description:
+    "D Premsankar is a full-stack developer, AI builder, Python developer, Flutter developer, and the founder of Ikaruz — an AI-powered software company.",
+  knowsAbout: [
+    "Python",
+    "Flutter",
+    "FastAPI",
+    "Dart",
+    "JavaScript",
+    "Web Development",
+    "AI Development",
+    "Vibe Coding",
+    "Full-Stack Development",
+    "Desktop Development",
+    "Linux Server Administration",
+    "Software Engineering",
+  ],
+  founder: {
+    "@type": "Organization",
+    name: "Ikaruz",
+    url: "https://ikaruz.in",
+    description:
+      "Ikaruz is an AI-powered software company that builds real software for businesses without the enterprise price tag, founded by D Premsankar.",
+  },
+  sameAs: [
+    "https://github.com/prem-25-dev",
+    "https://www.linkedin.com/in/premsankar25",
+    "https://www.instagram.com/d_premsankar_08",
+    "https://ikaruz.in",
+  ],
+  email: "d.premsankar25@gmail.com",
+  nationality: "Indian",
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "SJU — Kalvium",
   },
 };
 
@@ -74,8 +148,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sora.variable} ${inter.variable} ${jetbrains.variable} ${instrumentSerif.variable} ${notoSansTamil.variable}`}
+      className={`${sora.variable} ${inter.variable} ${jetbrains.variable} ${instrumentSerif.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+      </head>
       <body className="font-body">
         <Providers>
           <CustomCursor />

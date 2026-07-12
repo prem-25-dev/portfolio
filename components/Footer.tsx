@@ -1,75 +1,99 @@
 import Link from "next/link";
-import { Github, Linkedin, Instagram, Mail } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail, MessageCircle } from "lucide-react";
+
+const pages = [
+  { href: "/work", label: "Work" },
+  { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Connect" },
+];
+
+const socials = [
+  { href: "https://github.com/prem-25-dev", label: "GitHub", icon: Github },
+  { href: "https://www.linkedin.com/in/premsankar25", label: "LinkedIn", icon: Linkedin },
+  { href: "https://www.instagram.com/d_premsankar_08", label: "Instagram", icon: Instagram },
+  { href: "mailto:d.premsankar25@gmail.com", label: "Email", icon: Mail },
+  { href: "https://wa.me/919361037036", label: "WhatsApp", icon: MessageCircle },
+];
 
 export default function Footer() {
   return (
     <footer className="border-t border-line">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 py-10 sm:flex-row">
-        <div className="text-center sm:text-left">
-          <p className="font-display text-sm font-semibold uppercase tracking-[0.2em]">
-            D Premsankar
-          </p>
-          <p className="mt-1 text-tag text-muted">
-            Full-Stack Developer & Founder of{" "}
+      {/* CTA block */}
+      <div className="mx-auto max-w-6xl px-6 pb-0 pt-20">
+        <p className="font-mono text-tag uppercase tracking-[0.2em] text-accent">
+          Available for freelance &amp; collabs
+        </p>
+        <h2 className="mt-4 font-display text-[clamp(2.8rem,8vw,6rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-primary">
+          Let&apos;s build<br />
+          <span className="text-accent">something</span> real.
+        </h2>
+        <div className="mt-8 flex flex-wrap items-center gap-6">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-accent px-6 py-3 font-mono text-tag font-medium text-bg transition-opacity hover:opacity-90"
+          >
+            [ Get in touch → ]
+          </Link>
+          <a
+            href="mailto:d.premsankar25@gmail.com"
+            className="font-mono text-tag text-muted transition-colors hover:text-accent"
+          >
+            d.premsankar25@gmail.com
+          </a>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="mx-auto mt-16 max-w-6xl border-t border-line px-6 py-8">
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+          {/* Pages */}
+          <nav aria-label="Footer pages" className="flex flex-wrap gap-x-6 gap-y-2">
+            {pages.map((p) => (
+              <Link
+                key={p.href}
+                href={p.href}
+                className="font-mono text-tag text-muted transition-colors hover:text-accent"
+              >
+                {p.label}
+              </Link>
+            ))}
             <a
               href="https://ikaruz.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent hover:underline"
+              className="font-mono text-tag text-muted transition-colors hover:text-accent"
             >
-              Ikaruz
+              Ikaruz ↗
             </a>
+          </nav>
+
+          {/* Socials */}
+          <div className="flex items-center gap-4">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target={s.href.startsWith("http") ? "_blank" : undefined}
+                rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                aria-label={s.label}
+                className="text-muted transition-colors hover:text-accent"
+              >
+                <s.icon size={17} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Large name + copyright */}
+        <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <p className="font-display text-[clamp(2rem,6vw,4rem)] font-extrabold uppercase leading-none tracking-tight text-primary/10 select-none">
+            D Premsankar
+          </p>
+          <p className="font-mono text-tag text-muted">
+            © {new Date().getFullYear()} D Premsankar. All rights reserved.
           </p>
         </div>
-
-        <div className="flex items-center gap-5">
-          <a
-            href="https://github.com/prem-25-dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="text-muted transition-colors hover:text-accent"
-          >
-            <Github size={18} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/premsankar25"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="text-muted transition-colors hover:text-accent"
-          >
-            <Linkedin size={18} />
-          </a>
-          <a
-            href="https://www.instagram.com/d_premsankar_08"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="text-muted transition-colors hover:text-accent"
-          >
-            <Instagram size={18} />
-          </a>
-          <a
-            href="mailto:d.premsankar25@gmail.com"
-            aria-label="Email"
-            className="text-muted transition-colors hover:text-accent"
-          >
-            <Mail size={18} />
-          </a>
-        </div>
-
-        <nav aria-label="Footer navigation" className="flex gap-6 text-tag text-muted">
-          <Link href="/work" className="transition-colors hover:text-accent">
-            Work
-          </Link>
-          <Link href="/blog" className="transition-colors hover:text-accent">
-            Blog
-          </Link>
-          <Link href="/contact" className="transition-colors hover:text-accent">
-            Contact
-          </Link>
-        </nav>
       </div>
     </footer>
   );
