@@ -1,56 +1,80 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
-
-import { useLanguage } from "@/contexts/LanguageContext";
-import { skillHeadings } from "@/lib/translations";
+interface Skill { name: string; icon?: string }
 
 const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
 
-interface Skill {
-  name: string;
-  icon?: string;
-}
-
-const shipWith: Skill[] = [
-  { name: "HTML", icon: `${DEVICON}/html5/html5-original.svg` },
-  { name: "CSS", icon: `${DEVICON}/css3/css3-original.svg` },
-  { name: "JavaScript", icon: `${DEVICON}/javascript/javascript-original.svg` },
-  { name: "FastAPI", icon: `${DEVICON}/fastapi/fastapi-original.svg` },
-  { name: "PostgreSQL", icon: `${DEVICON}/postgresql/postgresql-original.svg` },
-  { name: "Python", icon: `${DEVICON}/python/python-original.svg` },
-  { name: "SQLite", icon: `${DEVICON}/sqlite/sqlite-original.svg` },
+const categories = [
+  {
+    heading: "Languages",
+    skills: [
+      { name: "Python", icon: `${DEVICON}/python/python-original.svg` },
+      { name: "HTML", icon: `${DEVICON}/html5/html5-original.svg` },
+      { name: "CSS", icon: `${DEVICON}/css3/css3-original.svg` },
+      { name: "JavaScript", icon: `${DEVICON}/javascript/javascript-original.svg` },
+      { name: "Dart / Flutter", icon: `${DEVICON}/dart/dart-original.svg` },
+    ],
+  },
+  {
+    heading: "Frameworks & Libraries",
+    skills: [
+      { name: "FastAPI", icon: `${DEVICON}/fastapi/fastapi-original.svg` },
+      { name: "Pandas" },
+      { name: "NumPy" },
+      { name: "Openpyxl" },
+    ],
+  },
+  {
+    heading: "Databases",
+    skills: [
+      { name: "PostgreSQL", icon: `${DEVICON}/postgresql/postgresql-original.svg` },
+      { name: "MySQL", icon: `${DEVICON}/mysql/mysql-original.svg` },
+      { name: "SQLite", icon: `${DEVICON}/sqlite/sqlite-original.svg` },
+    ],
+  },
+  {
+    heading: "Currently Learning",
+    skills: [
+      { name: "TypeScript", icon: `${DEVICON}/typescript/typescript-original.svg` },
+      { name: "React", icon: `${DEVICON}/react/react-original.svg` },
+      { name: "Java", icon: `${DEVICON}/java/java-original.svg` },
+      { name: "Rust", icon: `${DEVICON}/rust/rust-original.svg` },
+    ],
+    muted: true,
+  },
 ];
 
-const vibeCoding: Skill[] = [
-  { name: "Flutter", icon: `${DEVICON}/flutter/flutter-original.svg` },
-  { name: "Java", icon: `${DEVICON}/java/java-original.svg` },
-];
-
-const also: Skill[] = [
-  { name: "Discord Bots" },
-  { name: "Linux Server Admin", icon: `${DEVICON}/linux/linux-original.svg` },
-  { name: "Community Management" },
-];
-
-function SkillList({ title, skills }: { title: string; skills: Skill[] }) {
+function SkillCard({
+  heading,
+  skills,
+  muted,
+}: {
+  heading: string;
+  skills: Skill[];
+  muted?: boolean;
+}) {
   return (
-    <div>
-      <h3 className="font-mono text-tag uppercase tracking-[0.15em] text-accent">
-        {title}
+    <div className="rounded-lg border border-line bg-surface p-6">
+      <h3 className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-accent">
+        {heading}
       </h3>
-      <ul className="mt-4 flex flex-wrap gap-3">
+      <ul className="mt-4 flex flex-wrap gap-2">
         {skills.map((skill) => (
           <li
             key={skill.name}
-            className="flex items-center gap-2 rounded border border-line bg-surface px-3 py-2 font-mono text-tag text-primary"
+            className={`flex items-center gap-1.5 rounded-full border px-3 py-1 font-mono text-[0.75rem] ${
+              muted
+                ? "border-line text-muted"
+                : "border-line text-primary"
+            }`}
           >
             {skill.icon && (
               <img
                 src={skill.icon}
                 alt=""
-                width={16}
-                height={16}
+                width={13}
+                height={13}
                 loading="lazy"
                 aria-hidden="true"
               />
@@ -64,14 +88,16 @@ function SkillList({ title, skills }: { title: string; skills: Skill[] }) {
 }
 
 export default function SkillGrid() {
-  const { lang } = useLanguage();
-  const headings = skillHeadings[lang];
-
   return (
-    <div className="flex flex-col gap-10">
-      <SkillList title={headings.shipWith} skills={shipWith} />
-      <SkillList title={headings.vibeCoding} skills={vibeCoding} />
-      <SkillList title={headings.also} skills={also} />
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      {categories.map((cat) => (
+        <SkillCard
+          key={cat.heading}
+          heading={cat.heading}
+          skills={cat.skills}
+          muted={cat.muted}
+        />
+      ))}
     </div>
   );
 }
