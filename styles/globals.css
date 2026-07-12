@@ -128,39 +128,63 @@ button:focus-visible {
 }
 
 /* ---------- Custom cursor ---------- */
-.custom-cursor {
+.cursor-dot {
   position: fixed;
   top: 0;
   left: 0;
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 9999px;
   background-color: var(--accent);
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 200ms ease, height 200ms ease, background-color 200ms ease,
-    border-color 200ms ease;
+  transition: width 160ms ease, height 160ms ease;
 }
 
-.custom-cursor.is-hovering {
-  width: 32px;
-  height: 32px;
-  background-color: transparent;
-  border: 1.5px solid var(--accent);
+.cursor-dot.is-hovering {
+  width: 10px;
+  height: 10px;
 }
 
-.custom-cursor.is-label {
+.cursor-dot.is-label {
   width: auto;
   height: auto;
-  padding: 0.375rem 0.875rem;
+  border-radius: 3px;
+  padding: 0.35rem 0.85rem;
   background-color: var(--accent);
-  border: none;
   color: var(--bg);
   font-family: var(--font-jetbrains), monospace;
-  font-size: 0.8125rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
   white-space: nowrap;
-  transform: translate(-50%, -140%);
+  transform: translate(-50%, -155%);
+  transition: none;
+}
+
+/* Lagging ring */
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  border: 1.5px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 220ms ease, height 220ms ease, opacity 220ms ease;
+}
+
+.cursor-ring.ring-large {
+  width: 48px;
+  height: 48px;
+}
+
+.cursor-ring.ring-hidden {
+  opacity: 0;
 }
 
 @media (pointer: fine) {
@@ -277,7 +301,8 @@ button:focus-visible {
     animation: none !important;
   }
 
-  .custom-cursor {
+  .cursor-dot,
+  .cursor-ring {
     display: none !important;
   }
 }
