@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -30,11 +31,8 @@ export default function Nav() {
         className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6"
         aria-label="Main navigation"
       >
-        <Link
-          href="/"
-          className="font-display text-sm font-bold uppercase tracking-[0.2em] text-primary transition-colors hover:text-accent"
-        >
-          D Premsankar
+        <Link href="/" className="opacity-90 transition-opacity hover:opacity-100" aria-label="D Premsankar — Home">
+          <Image src="/logo.png" alt="P" width={36} height={36} priority className="rounded-md" />
         </Link>
 
         <div className="hidden lg:block" aria-hidden="true">

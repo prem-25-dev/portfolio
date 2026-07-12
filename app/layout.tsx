@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Sora, Inter, JetBrains_Mono, Instrument_Serif } from "next/font/google";
+import { Sora, Inter, JetBrains_Mono, Instrument_Serif, Cormorant_Garamond } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
+import SplashScreen from "@/components/SplashScreen";
 import Providers from "@/components/Providers";
 import "@/styles/globals.css";
 
@@ -29,6 +30,14 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
   style: ["normal", "italic"],
   variable: "--font-serif",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-calligraphy",
   display: "swap",
 });
 
@@ -148,7 +157,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sora.variable} ${inter.variable} ${jetbrains.variable} ${instrumentSerif.variable}`}
+      className={`${sora.variable} ${inter.variable} ${jetbrains.variable} ${instrumentSerif.variable} ${cormorant.variable}`}
     >
       <head>
         <script
@@ -158,6 +167,7 @@ export default function RootLayout({
       </head>
       <body className="font-body">
         <Providers>
+          <SplashScreen />
           <CustomCursor />
           <Nav />
           <main className="pt-16">{children}</main>

@@ -24,7 +24,7 @@ export default function AboutBody() {
         <Eyebrow label="ABOUT" />
         <h1 className="font-display text-5xl font-extrabold leading-tight text-primary sm:text-6xl">
           I&apos;m Prem.{" "}
-          <em className="font-serif not-italic text-accent">I build things</em>{" "}
+          <em className="font-calligraphy text-[1.15em] font-bold italic not-italic text-accent">I build things</em>{" "}
           that do real work.
         </h1>
         <p className="mt-6 max-w-2xl text-body text-muted">
@@ -173,20 +173,6 @@ export default function AboutBody() {
             </div>
           </Reveal>
 
-          <Reveal>
-            <div
-              className="relative aspect-[4/5] overflow-hidden rounded-lg border border-line"
-              data-cursor-text="also me"
-            >
-              <Image
-                src="/speech.jpg"
-                alt="D Premsankar — another portrait"
-                fill
-                sizes="(max-width: 1024px) 100vw, 360px"
-                className="object-cover object-top"
-              />
-            </div>
-          </Reveal>
         </div>
       </div>
     </div>

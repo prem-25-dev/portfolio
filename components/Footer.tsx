@@ -87,7 +87,7 @@ export default function Footer() {
 
         {/* Large name + copyright */}
         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <p className="font-display text-[clamp(2rem,6vw,4rem)] font-extrabold uppercase leading-none tracking-tight text-primary/10 select-none">
+          <p className="font-calligraphy text-[clamp(2.4rem,7vw,5.5rem)] font-bold italic leading-none text-primary/10 select-none">
             D Premsankar
           </p>
           <p className="font-mono text-tag text-muted">

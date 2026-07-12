@@ -22,6 +22,7 @@ const config: Config = {
         body: ["var(--font-inter)", "sans-serif"],
         mono: ["var(--font-jetbrains)", "monospace"],
         serif: ["var(--font-serif)", "serif"],
+        calligraphy: ["var(--font-calligraphy)", "Georgia", "serif"],
       },
       fontSize: {
         body: ["1.0625rem", { lineHeight: "1.75" }],
