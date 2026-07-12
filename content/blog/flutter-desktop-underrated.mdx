@@ -1,0 +1,30 @@
+---
+title: "Flutter Is Underrated for Desktop Apps"
+date: "June 2026"
+description: "I've shipped real Windows desktop apps with Flutter for paying clients. Here's what surprised me — and what's still rough."
+slug: "flutter-desktop-underrated"
+---
+
+Say "Flutter" and everyone thinks mobile. Fair enough — that's where it started. But I've now shipped actual desktop apps on Windows for paying clients, and I think Flutter on desktop is one of the most underrated options out there.
+
+My first billing app for Muthu Enterprises ran on both desktop and mobile from a single codebase. Same Dart, same widgets, same business logic. The client got a Windows app for the shop counter and a mobile app for checking records on the go — and I didn't write anything twice. For a solo developer working with small business budgets, that's not a nice-to-have. That's the whole game.
+
+Here's what surprised me, in a good way:
+
+**Hot reload works on desktop.** I knew it worked on mobile. I didn't expect the same instant feedback loop while building a Windows app. Change a layout, hit save, watch the window update. Desktop development usually doesn't feel this fast.
+
+**The UI is genuinely smooth.** Flutter draws everything itself, so your app doesn't inherit the clunky look of whatever native toolkit the OS ships. My billing screens looked the same on a cheap shop PC as they did on my machine. Pixel for pixel.
+
+**SQLite integration is painless.** For a local business app, Flutter plus SQLite is a beautiful combination. No server, no hosting bill, no internet dependency. The app just works, even when the shop's WiFi doesn't.
+
+Now the honest part — the rough edges are real:
+
+**The plugin ecosystem is mobile-first.** Need camera or GPS? Ten packages. Need proper Windows printer handling or system tray support? Get ready to dig through half-maintained packages and GitHub issues. I lost real hours to printing support that would have been trivial on mobile.
+
+**Platform quirks exist.** Window sizing behavior, file path handling, the occasional rendering oddity on specific graphics drivers — nothing project-killing, but you learn to test on the actual target machine early.
+
+**File size is chunky.** A simple Flutter desktop app ships heavier than its native equivalent. For my clients this never mattered. For some projects it might.
+
+So no, this isn't a fanboy post. Flutter desktop has gaps, and if your app needs deep OS integration, look elsewhere. But if you're building business tools — forms, data, invoices, dashboards — and you want one codebase that runs everywhere your client works?
+
+I've shipped it. It works. More people should try it.
