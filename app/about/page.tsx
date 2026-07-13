@@ -4,7 +4,7 @@ import AboutBody from "@/components/AboutBody";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "D Premsankar — developer, builder, founder. Shipping real software since 16, now building Ikaruz while studying at Kalvium at SJU.",
+    "The story behind D Premsankar — how a ₹20,000 software quote at age 13 led to founding Ikaruz, shipping real software for real businesses.",
   openGraph: {
     title: "About — D Premsankar",
     description:

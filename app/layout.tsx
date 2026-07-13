@@ -41,7 +41,7 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const siteUrl = "https://premsankar.dev";
+const siteUrl = "https://prem.ikaruz.in";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -96,6 +96,13 @@ export const metadata: Metadata = {
       "Full-stack developer and founder of Ikaruz. Python, Flutter & FastAPI. Building real software.",
     images: ["/photo.jpg"],
   },
+  icons: {
+    icon: [
+      { url: "/logo.png", type: "image/png" },
+    ],
+    apple: "/logo.png",
+    shortcut: "/logo.png",
+  },
   alternates: { canonical: "/" },
   robots: {
     index: true,
@@ -107,9 +114,14 @@ export const metadata: Metadata = {
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${siteUrl}/#person`,
   name: "D Premsankar",
   alternateName: ["Premsankar", "Prem Sankar", "D. Premsankar", "Prem"],
   url: siteUrl,
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": siteUrl,
+  },
   image: `${siteUrl}/photo.jpg`,
   jobTitle: ["Full-Stack Developer", "AI Builder", "Founder", "Vibe Coder"],
   description:
