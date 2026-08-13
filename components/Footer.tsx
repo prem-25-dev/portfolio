@@ -11,7 +11,7 @@ const pages = [
 const socials = [
   { href: "https://github.com/prem-25-dev", label: "GitHub", icon: Github },
   { href: "https://www.linkedin.com/in/premsankar25", label: "LinkedIn", icon: Linkedin },
-  { href: "https://www.instagram.com/d_premsankar_08", label: "Instagram", icon: Instagram },
+  { href: "https://www.instagram.com/premsankar.dev", label: "Instagram", icon: Instagram },
   { href: "mailto:d.premsankar25@gmail.com", label: "Email", icon: Mail },
   { href: "https://wa.me/919361037036", label: "WhatsApp", icon: MessageCircle },
 ];

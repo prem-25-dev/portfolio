@@ -150,7 +150,7 @@ const personSchema = {
   sameAs: [
     "https://github.com/prem-25-dev",
     "https://www.linkedin.com/in/premsankar25",
-    "https://www.instagram.com/d_premsankar_08",
+    "https://www.instagram.com/premsankar.dev",
     "https://ikaruz.in",
   ],
   email: "d.premsankar25@gmail.com",

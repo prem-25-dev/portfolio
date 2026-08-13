@@ -131,7 +131,7 @@ export default function HomePage() {
                 <Linkedin size={22} />
               </a>
               <a
-                href="https://www.instagram.com/d_premsankar_08"
+                href="https://www.instagram.com/premsankar.dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
