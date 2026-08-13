@@ -46,7 +46,7 @@ const socials = [
     label: "Instagram",
     href: "https://www.instagram.com/premsankar.dev",
     icon: Instagram,
-    handle: "d_premsankar_08",
+    handle: "premsankar.dev",
   },
   {
     label: "Email",
