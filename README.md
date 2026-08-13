@@ -1,87 +1,90 @@
-# D PREMSANKAR — Portfolio
+# My Portfolio
 
-Personal portfolio website for D Premsankar — Full-Stack Developer & Founder of [Ikaruz](https://ikaruz.in).
+This is my personal site — [premsankar.dev](https://premsankar.dev).
 
-Built with **Next.js 14 (App Router) + TypeScript + Tailwind CSS**. No component libraries. Dark, minimal, text-forward.
+I built it to have one place that shows who I am, what I've shipped, and what I'm thinking about. No templates, no drag-and-drop builder — I wrote every page myself.
 
-## Run locally
+## Stack
+
+- **Next.js 14** (App Router) + **TypeScript**
+- **Tailwind CSS** for styling (no component library)
+- **MDX** for blog posts
+- **Supabase** for blog likes and comments
+- Deployed on **Vercel**
+
+Dark, minimal, text-first. That's the whole design brief.
+
+## Run it locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Then open [http://localhost:3000](http://localhost:3000).
 
-Production build:
+For a production build:
 
 ```bash
 npm run build
 npm start
 ```
 
-## Project structure
+## How the folders are laid out
 
 ```
-app/            → pages (App Router)
-components/     → Nav, Footer, ProjectRow, Timeline, custom cursor, etc.
-content/blog/   → blog posts as MDX files
-data/projects.ts→ all project/case-study data as typed objects
-public/         → photos (photo.jpg, speech.jpg)
-styles/         → global CSS, design tokens, cursor + animation styles
+app/           → every page lives here (Next.js App Router)
+components/    → the reusable React pieces (Nav, Footer, Hero, etc.)
+content/blog/  → my blog posts, written as .mdx files
+contexts/      → React context (language switcher)
+data/          → my project list as typed TS objects
+lib/           → helpers (blog reader, Supabase client, translations)
+public/        → my photos + logo
+styles/        → global CSS and design tokens
 ```
 
-## Add a new blog post
+## Adding a new blog post
 
-1. Create a new file in `content/blog/`, e.g. `my-new-post.mdx`
+1. Drop a new `.mdx` file into `content/blog/`.
 2. Add frontmatter at the top:
 
 ```mdx
 ---
-title: "My New Post"
+title: "The title"
 date: "August 2026"
-description: "One-liner shown on the blog index."
-slug: "my-new-post"
+description: "One-line summary shown on the blog index."
+slug: "the-url-slug"
 ---
 
-Your post content in Markdown/MDX...
+Post body here...
 ```
 
-3. That's it. The post appears automatically on `/blog` and at `/blog/my-new-post`. Posts are sorted newest-first by date.
+3. That's it — it shows up on `/blog` and at `/blog/<slug>` automatically. Newest post first.
 
-## Add a new project
+## Adding a new project
 
-Add an object to the array in `data/projects.ts`. It automatically appears on `/work` and gets its own case-study page at `/work/<slug>`. Set `featured: true` to show it on the landing page (keep it to 3).
+Open `data/projects.ts` and add a new object to the array. It appears on `/work` and gets its own case-study page at `/work/<slug>` on its own. Set `featured: true` if I want it on the home page (I keep that to 3).
 
-## Swap photos
+## Swapping photos
 
-Replace the files in `public/`:
+Just replace the files in `public/`:
 
-- `public/photo.jpg` — main profile photo (hero + about page). Displayed at 3:4 portrait ratio, so any orientation works — it's cropped with `object-cover`.
-- `public/speech.jpg` — secondary photo on the about page.
+- `photo.jpg` — my main portrait (home + about)
+- `speech.jpg` — second photo on the about page
 
-Keep the same filenames and nothing else needs to change.
+Same filenames, no code changes needed.
 
-## Fill in placeholders
+## Deploy
 
-One contact link is a placeholder:
+Every push to `master` deploys to production on Vercel automatically. Nothing to configure.
 
-- Twitter/X link is `#` — add your handle when you have one (in `app/page.tsx` and `app/contact/page.tsx`)
+## The look
 
-Also update `metadataBase` in `app/layout.tsx` to your real domain before deploying (currently `https://premsankar.dev`).
+- **Colors:** near-black `#0B0809` background, warm off-white `#F0EDE8` text, one red accent `#E5484D`.
+- **Fonts:** Sora (display), Inter (body), JetBrains Mono (tags), Instrument Serif (italic accents) — loaded via `next/font`.
+- **Signature bit:** every section opens with a red `[ LABEL ]` eyebrow and a hairline rule.
+- **Motion:** headline line-reveal, staggered fade-ups on scroll, a custom red cursor that turns into a "that's me" label over my photos. Everything respects `prefers-reduced-motion`.
 
-## Deploy to Vercel
+---
 
-1. Push this repo to GitHub
-2. Go to [vercel.com/new](https://vercel.com/new) and import the repo
-3. Vercel auto-detects Next.js — no config needed. Hit **Deploy**.
-4. Add your custom domain under Project → Settings → Domains
-
-Every push to `main` redeploys automatically. All pages are statically generated (SSG).
-
-## Design system
-
-- **Colors:** near-black background `#0B0809`, warm off-white text `#F0EDE8`, single red accent `#E5484D`. Tokens live as CSS variables in `styles/globals.css`.
-- **Fonts:** Sora (display), Inter (body), JetBrains Mono (tags/code), Instrument Serif (italic hero accent) — loaded via `next/font`.
-- **Signature element:** every section opens with a red `[ LABEL ]` eyebrow + hairline rule.
-- **Motion:** hero headline line-reveal, staggered fade-up, IntersectionObserver scroll reveals, custom red cursor (desktop only) that turns into a "that's me" label over photos (`data-cursor-text` attribute). All animation is disabled when `prefers-reduced-motion` is set.
+Built by me. If you want to talk, I'm on [Instagram](https://www.instagram.com/premsankar.dev) and [LinkedIn](https://www.linkedin.com/in/premsankar25).
